@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.task-container {
+    height: 10rem;
+    width: 20rem;
+    background-color: var(--card-color);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 2px 2px 2px var(--shadow-color);
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+}
+
+.task-title {
+    color: var(--title-color);
+}
+
+.description {
+    text-align: justify;
+    text-indent: 3rem;
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    color: var(--text-color);
+}
+
+.edit-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
