@@ -1,0 +1,23 @@
+.tasks-container {
+    width: 100%;
+    background-color: var(--card-color);
+    opacity: 50%;
+    border-radius: 0.5rem;
+    padding: 1.5rem; 
+    display: grid;
+    box-sizing: border-box;
+}
+
+.task-group {
+    height: calc(100vh - 250px);
+    overflow-x: hidden;
+    display: grid;
+    gap: 1.5rem;
+    
+}
+.column-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;    
+    padding-bottom: 1rem;
+}

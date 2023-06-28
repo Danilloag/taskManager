@@ -12,6 +12,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --text-color: #0c0c0c;
+  --bckgnd-color: #1c1b39;
+  --title-color: #EF807C;
+  --card-color: #FFFFFF;
+  --column-color: #0000001F;
+  --shadow-color: #555555;
 }
 
 a {
@@ -25,10 +32,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {

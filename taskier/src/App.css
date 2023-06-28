@@ -3,15 +3,6 @@
   padding: 0px;
 }
 
-#root {
-  --text-color: #0c0c0c;
-  --bckgnd-color: #1c1b39;
-  --title-color: #EF807C;
-  --card-color: #FFFFFF;
-  --column-color: #0000001F;
-  --shadow-color: #555555;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -56,11 +47,16 @@
 
 .logo-mach {
   margin-top: 1.5rem;
-  height: 8rem;
+  height: 5rem;
 }
 
 .breadcrumbs {
   color: var(--title-color);
   font-weight: bold;
-  padding-left: 12rem;
+  padding-left: 10rem;
+}
+
+.master-div {
+  height: 300px;
+  margin: 0 4rem;
 }
