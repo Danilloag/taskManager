@@ -1,9 +1,11 @@
+* {
+  margin: 0;
+  padding: 0px;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  --text-color: #201F3B;
+  --text-color: #0c0c0c;
+  --bckgnd-color: #1c1b39;
   --title-color: #EF807C;
   --card-color: #FFFFFF;
   --column-color: #0000001F;
@@ -44,4 +46,21 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bckgnd-color);
+}
+
+.logo-mach {
+  margin-top: 1.5rem;
+  height: 8rem;
+}
+
+.breadcrumbs {
+  color: var(--title-color);
+  font-weight: bold;
+  padding-left: 12rem;
 }

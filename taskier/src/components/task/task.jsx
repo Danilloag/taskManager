@@ -2,7 +2,11 @@ import './task.css'
 
 export default function Task(props) {
 
-    // if props.status...
+    props = {
+        title: 'ABC', description: 'DEF', stats: 'Z'
+    }
+
+
     return (
         <div className="task-container">
             <h2 className='task-title'>{props.title}</h2>
