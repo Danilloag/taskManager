@@ -1,0 +1,25 @@
+.menu-container {
+    width: 8rem;
+    padding: 0.5rem 2rem;
+    background-color: var(--menu-color);
+    position: relative;
+}
+
+.butt-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.butt {
+    font-size: 0.7rem;
+    color: var(--card-color);
+    background-color: var(--title-color);
+}
+
+.new-edit-icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+

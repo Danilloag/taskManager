@@ -1,0 +1,17 @@
+.columns-div {
+  height: 300px;
+  margin: 0 4rem;
+}
+
+.search-div {
+  justify-items: end;
+  padding: 0 4rem 0.5rem 0;
+}
+
+.home-search {
+  width: 25rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  text-indent: 1rem;
+  font-size: 1rem;
+}

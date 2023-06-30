@@ -10,10 +10,11 @@
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem;
     box-shadow: 2px 2px 2px var(--shadow-color);
-    padding: 20px;
+    padding: 0.5rem;
     position: relative;
+    margin-right: 6px;
 }
 
 .task-title {
@@ -22,9 +23,9 @@
 
 .description {
     text-align: justify;
-    text-indent: 3rem;
+    text-indent: 2rem;
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

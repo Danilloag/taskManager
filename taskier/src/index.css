@@ -13,12 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --text-color: #0c0c0c;
-  --bckgnd-color: #1c1b39;
+  --text-color: #0C0C0C;
+  --bckgnd-color: #1C1B39;
   --title-color: #EF807C;
   --card-color: #FFFFFF;
-  --column-color: #0000001F;
+  --column-color: #FFFFFFAA;
   --shadow-color: #555555;
+  --menu-color: #0C0C0C44;
 }
 
 a {

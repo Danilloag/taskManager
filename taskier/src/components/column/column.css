@@ -1,7 +1,6 @@
 .tasks-container {
     width: 100%;
-    background-color: var(--card-color);
-    opacity: 50%;
+    background-color: var(--column-color);
     border-radius: 0.5rem;
     padding: 1.5rem; 
     display: grid;
@@ -9,10 +8,10 @@
 }
 
 .task-group {
-    height: calc(100vh - 250px);
+    height: calc(100vh - 280px);
     overflow-x: hidden;
     display: grid;
-    gap: 1.5rem;
+    gap: 0.7rem;
     
 }
 .column-head {
@@ -21,3 +20,4 @@
     justify-content: space-between;    
     padding-bottom: 1rem;
 }
+
