@@ -4,9 +4,9 @@ import AppRoutes from '../routes/AppRoutes'
 
 export default function Task(props) {
 
-    props = {
-        title: 'Título da Task', description: 'Aqui vai a descrição com tudo o que você puder imaginar de detalhes e de coisas inúteis acerca de qualquer tarefa que seja possível de ser executada por um ser humano. Mas ainda há a possibilidade de o texto não caber', stats: 'Z'
-    }
+    // props = {
+    //     title: 'Título da Task', description: 'Aqui vai a descrição com tudo o que você puder imaginar de detalhes e de coisas inúteis acerca de qualquer tarefa que seja possível de ser executada por um ser humano. Mas ainda há a possibilidade de o texto não caber', stats: 'Z'
+    // }
 
     return (
         <div className="task-container">

@@ -9,13 +9,13 @@ export default function Manager() {
             </div>
             <div className='columns-div grid'>
                 <div className='column-container col-4'>
-                    <Column></Column>
+                    <Column type="Listed"></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column></Column>
+                    <Column type="Started"></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column></Column>
+                    <Column type="Finished"></Column>
                 </div>
             </div>
         </div>
