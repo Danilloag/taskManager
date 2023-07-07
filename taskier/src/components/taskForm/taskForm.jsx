@@ -21,8 +21,8 @@ export default function TaskForm() {
             // id: '123456'
         }
 
-        setTask ({...task, newTask})
-        alert (newTask)
+        // setTask ({...task, newTask})
+        // alert (newTask)
     }
 
     return (

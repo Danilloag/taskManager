@@ -1,7 +1,21 @@
 import './manager.css'
 import Column from '../column/column'
+import { useContext, useEffect } from 'react'
+import tasksContext from '../../tasksContext'
+
 
 export default function Manager() {
+
+    const { tasks, loadTasks } = useContext(tasksContext)
+
+    useEffect(() => {
+       loadTasks()
+    },[])
+
+    console.log(tasks)
+
+    
+
     return (
         <div className='master-div'>
             <div className='search-div grid'>
@@ -9,13 +23,13 @@ export default function Manager() {
             </div>
             <div className='columns-div grid'>
                 <div className='column-container col-4'>
-                    <Column type="Listed"></Column>
+                    <Column data={tasks} status="LISTADA" title='listada'></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column type="Started"></Column>
+                    <Column data={tasks} status="INICIADA" title='iniciada'></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column type="Finished"></Column>
+                    <Column data={tasks} status="FINALIZADA" title='finalizada'></Column>
                 </div>
             </div>
         </div>

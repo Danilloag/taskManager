@@ -5,10 +5,16 @@ const tasksContext = createContext()
 export const tasksInitialContent = []
 
 export function ColumnProvider(props) {
-    const [task, setTask] = useState(tasksInitialContent)
+    const [tasks, setTasks] = useState(tasksInitialContent)
+
+    function loadTasks() {
+        fetch('http://localhost:3000/task')
+        .then((res) => res.json())
+        .then((data) => setTasks(data))
+    }
 
     return (
-        <tasksContext.Provider value={{task, setTask}}>
+        <tasksContext.Provider value={{ tasks, setTasks, loadTasks }}>
             {props.children}
         </tasksContext.Provider>
     )
