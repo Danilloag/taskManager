@@ -9,12 +9,27 @@ export function ColumnProvider(props) {
 
     function loadTasks() {
         fetch('http://localhost:3000/task')
-        .then((res) => res.json())
-        .then((data) => setTasks(data))
+            .then((res) => res.json())
+            .then((data) => setTasks(data))
+    }
+
+    function createTasks(task) {
+        fetch ('http://localhost:3000/task', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(task)
+        })
+        .then((res) => res.json)
+        .then((data) => {
+            console.log(`DADOS: ${data}  TASK: ${task}`)
+            // data = {...data, task}
+        })
     }
 
     return (
-        <tasksContext.Provider value={{ tasks, setTasks, loadTasks }}>
+        <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks }}>
             {props.children}
         </tasksContext.Provider>
     )

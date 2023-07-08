@@ -1,51 +1,42 @@
 import './taskForm.css'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import tasksContext from '../../tasksContext'
 
 export default function TaskForm() {
 
-    const { task, setTask } = useContext(tasksContext)
+    const [newTask, setNewTask] = useState({
+        name: '',
+        status: '',
+        description: '',
+    })
 
-    function taskInclude() {
-
-        const newTask = {
-
-            title: title.value,
-            content: description.innerText,
-            state: state.value,
-            id: 123456
-
-            // title: 'TÍTULO TESTE',
-            // description: 'QUALQUER CONTEUDO',
-            // state: 'Listed',
-            // id: '123456'
-        }
-
-        // setTask ({...task, newTask})
-        // alert (newTask)
+    const { createTasks } = useContext(tasksContext)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        createTasks(newTask)
     }
 
     return (
         <div className="form-background">
-            <form action="post">
+            <form action="post" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name:<br />
-                    <input type="text" name="name" id="title"/>
+                    <input type="text" name="name" id="title" onChange={(e) => setNewTask({...newTask, name: e.target.value})}/>
                 </label>
 
-                <label htmlFor="stats">Status:<br />
-                    <select name="stats" placeholder='Select a value' id="state" >
-                        <option disabled selected hidden></option>
-                        <option value="listed">Listed</option>
-                        <option value="started">Started</option>
-                        <option value="ended">Ended</option>
+                <label htmlFor="status">Status:<br />
+                    <select name="status" placeholder='Select a value' value={newTask.status} id="state" onChange={(e) => setNewTask({...newTask, status: e.target.value})}>
+                        <option disabled hidden></option>
+                        <option value="LISTADA">Listed</option>
+                        <option value="INICIADA">Started</option>
+                        <option value="FINALIZADA">Ended</option>
                     </select>
                 </label>
 
                 <label htmlFor="description">Description<br />
-                    <textarea name="description" id="description" rows="10"></textarea>
+                    <textarea name="description" id="description" rows="10" onChange={(e) => setNewTask({...newTask, description: e.target.value})}></textarea>
                 </label>
 
-                <button className='form-butt' onClick={() => taskInclude()}>Submit</button>
+                <button className='form-butt' type='submit'>Submit</button>
             </form>
         </div>
     )

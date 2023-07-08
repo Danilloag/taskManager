@@ -12,10 +12,6 @@ export default function Manager() {
        loadTasks()
     },[])
 
-    console.log(tasks)
-
-    
-
     return (
         <div className='master-div'>
             <div className='search-div grid'>
@@ -23,13 +19,13 @@ export default function Manager() {
             </div>
             <div className='columns-div grid'>
                 <div className='column-container col-4'>
-                    <Column data={tasks} status="LISTADA" title='listada'></Column>
+                    <Column data={tasks} status="LISTADA" title='Listada'></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column data={tasks} status="INICIADA" title='iniciada'></Column>
+                    <Column data={tasks} status="INICIADA" title='Iniciada'></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column data={tasks} status="FINALIZADA" title='finalizada'></Column>
+                    <Column data={tasks} status="FINALIZADA" title='Finalizada'></Column>
                 </div>
             </div>
         </div>

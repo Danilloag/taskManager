@@ -10,7 +10,8 @@
 .task-group {
     height: calc(100vh - 280px);
     overflow-x: hidden;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 0.7rem;
     
 }
