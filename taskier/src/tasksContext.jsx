@@ -14,7 +14,7 @@ export function TasksProvider(props) {
     }
 
     function createTasks(task) {
-        fetch('http://localhost:3000/task', {
+        fetch ('http://localhost:3000/task', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -23,13 +23,11 @@ export function TasksProvider(props) {
         })
             .then((res) => res.json)
             .then((data) => {
-                console.log(`DADOS: ${data}  TASK: ${task}`)
-                // data = {...data, task}
+                console.log(`Task ${task} created successfully`)
             })
+            .catch((error) => {console.error()})
     }
 
-
-    ///////////////////////////////////////////////////////////////////////
     function TaskEditor(task) {
         const [name, setName] = useState(task.name);
         const [description, setDescription] = useState(task.description);
@@ -69,7 +67,9 @@ export function TasksProvider(props) {
                 })
         };
     }
+
     ///////////////////////////////////////////////////////////////////////////////////////
+
     return (
         <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks }}>
             {props.children}
