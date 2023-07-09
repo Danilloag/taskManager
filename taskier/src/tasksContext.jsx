@@ -14,18 +14,57 @@ export function ColumnProvider(props) {
     }
 
     function createTasks(task) {
-        fetch ('http://localhost:3000/task', {
+        fetch('http://localhost:3000/task', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(task)
         })
-        .then((res) => res.json)
-        .then((data) => {
-            console.log(`DADOS: ${data}  TASK: ${task}`)
-            // data = {...data, task}
-        })
+            .then((res) => res.json)
+            .then((data) => {
+                console.log(`Task ${task} created successfully`)
+            })
+            .catch((error) => {console.error()})
+    }
+
+    function TaskEditor(task) {
+        const [name, setName] = useState(task.name);
+        const [description, setDescription] = useState(task.description);
+        const [status, setStatus] = useState(task.status);
+
+        const handleNameChange = (e) => {
+            setName(e.target.value);
+        };
+
+        const handleDescriptionChange = (e) => {
+            setDescription(e.target.value);
+        };
+
+        const handleStatusChange = (e) => {
+            setStatus(e.target.value);
+        };
+
+        const handleSave = () => {
+            const updatedTask = {
+                ...task,
+                name: name,
+                description: description,
+                status: status,
+            };
+
+            fetch(`http://localhost:3000/task/${task.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedTask),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('Tarefa atualizada com sucesso:', data);
+                })
+        }
     }
 
     return (
