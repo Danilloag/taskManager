@@ -36,6 +36,15 @@
 
 .edit-icon {
     position: absolute;
+    z-index: 1;
     top: 5px;
     right: 5px;
+}
+
+.unvisible {
+    display: none;
+}
+
+.visible {
+    display: block;
 }

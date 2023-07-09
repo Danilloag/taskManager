@@ -7,17 +7,19 @@ import tasksContext from '../../tasksContext'
 export default function Manager() {
 
     const { tasks, setTasks, loadTasks } = useContext(tasksContext)
-    
+
     useEffect(() => {
         loadTasks()
-        
     }, [])
-    
+
+
+    /////////////////////////////////
     function filterTasks(e) {
-        
+
         const filteredTasks = tasks.filter(task => task.name.toLowerCase().startsWith(e.target.value.toLowerCase()))
-        return e.target.value != '' ? loadTasks() : setTasks(filteredTasks)
+        e.target.value == "" ? loadTasks() : setTasks(filteredTasks)
     }
+    /////////////////////////////////
 
     return (
         <div className='master-div'>
