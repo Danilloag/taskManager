@@ -10,20 +10,17 @@ import AppRoutes from './components/routes/AppRoutes'
 function App() {
 
   return (
-      <div className='background'>
-        <Link to="/">
-          <div className='logo-div col-12'>
-            <img className='logo-mach' src={LogoMach1} alt="LogoMach1" />
-          </div>
-        </Link>
-        <div className='bread-div col-12'>
-          <p className='breadcrumbs'>BREADCRUMBS</p>
+    <div className='background'>
+      <Link to="/">
+        <div className='logo-div col-12'>
+          <img className='logo-mach' src={LogoMach1} alt="LogoMach1" />
         </div>
-
-        {/* <Manager /> */}
-        {/* <TaskForm></TaskForm> */}
-        <AppRoutes/>
-      </div >
+      </Link>
+      <div className='bread-div col-12'>
+        <p className='breadcrumbs'>BREADCRUMBS</p>
+      </div>
+      <AppRoutes />
+    </div >
   )
 }
 
