@@ -4,7 +4,7 @@ const tasksContext = createContext()
 
 export const tasksInitialContent = []
 
-export function ColumnProvider(props) {
+export function TasksProvider(props) {
     const [tasks, setTasks] = useState(tasksInitialContent)
 
     function loadTasks() {
@@ -14,7 +14,7 @@ export function ColumnProvider(props) {
     }
 
     function createTasks(task) {
-        fetch('http://localhost:3000/task', {
+        fetch ('http://localhost:3000/task', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -59,13 +59,16 @@ export function ColumnProvider(props) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(updatedTask),
-            })
+            }
+            )
                 .then((response) => response.json())
                 .then((data) => {
                     console.log('Tarefa atualizada com sucesso:', data);
                 })
-        }
+        };
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks }}>

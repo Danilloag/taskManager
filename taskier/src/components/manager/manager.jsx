@@ -1,31 +1,38 @@
 import './manager.css'
 import Column from '../column/column'
-import { useContext, useEffect } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import tasksContext from '../../tasksContext'
 
 
 export default function Manager() {
 
-    const { tasks, loadTasks } = useContext(tasksContext)
-
+    const { tasks, setTasks, loadTasks } = useContext(tasksContext)
+    
     useEffect(() => {
-       loadTasks()
-    },[])
+        loadTasks()
+        
+    }, [])
+    
+    function filterTasks(e) {
+        
+        const filteredTasks = tasks.filter(task => task.name.toLowerCase().startsWith(e.target.value.toLowerCase()))
+        return e.target.value != '' ? loadTasks() : setTasks(filteredTasks)
+    }
 
     return (
         <div className='master-div'>
             <div className='search-div grid'>
-                <input className='home-search col-12' type="search" placeholder='Busca...'/>
+                <input onChange={(e) => filterTasks(e)} className='home-search col-12' type="search" placeholder='Search a title...' />
             </div>
             <div className='columns-div grid'>
                 <div className='column-container col-4'>
-                    <Column data={tasks} status="LISTADA" title='Listada'></Column>
+                    <Column data={tasks} status="LISTADA" title='Listed'></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column data={tasks} status="INICIADA" title='Iniciada'></Column>
+                    <Column data={tasks} status="INICIADA" title='Started'></Column>
                 </div>
                 <div className='column-container col-4'>
-                    <Column data={tasks} status="FINALIZADA" title='Finalizada'></Column>
+                    <Column data={tasks} status="FINALIZADA" title='Ended'></Column>
                 </div>
             </div>
         </div>

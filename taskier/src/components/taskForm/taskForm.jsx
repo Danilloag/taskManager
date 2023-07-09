@@ -19,12 +19,12 @@ export default function TaskForm() {
     return (
         <div className="form-background">
             <form action="post" onSubmit={handleSubmit}>
-                <label htmlFor="name">Name:<br />
-                    <input type="text" name="name" id="title" onChange={(e) => setNewTask({...newTask, name: e.target.value})}/>
+                <label htmlFor="title">Title:<br />
+                    <input type="text" name="title" id="title" onChange={(e) => setNewTask({...newTask, name: e.target.value})}/>
                 </label>
 
                 <label htmlFor="status">Status:<br />
-                    <select name="status" placeholder='Select a value' value={newTask.status} id="state" onChange={(e) => setNewTask({...newTask, status: e.target.value})}>
+                    <select name="status" placeholder='Select a value...' value={newTask.status} id="state" onChange={(e) => setNewTask({...newTask, status: e.target.value})}>
                         <option disabled hidden></option>
                         <option value="LISTADA">Listed</option>
                         <option value="INICIADA">Started</option>
@@ -32,7 +32,7 @@ export default function TaskForm() {
                     </select>
                 </label>
 
-                <label htmlFor="description">Description<br />
+                <label htmlFor="description">Description:<br />
                     <textarea name="description" id="description" rows="10" onChange={(e) => setNewTask({...newTask, description: e.target.value})}></textarea>
                 </label>
 
