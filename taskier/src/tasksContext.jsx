@@ -7,10 +7,11 @@ export const tasksInitialContent = []
 export function TasksProvider(props) {
     const [tasks, setTasks] = useState(tasksInitialContent)
 
-    function loadTasks() {
-        fetch('http://localhost:3000/task')
-            .then((res) => res.json())
-            .then((data) => setTasks(data))
+    async function loadTasks() {
+        const res = await fetch('http://localhost:3000/task')
+        const data = await res.json()
+        const dataMapped = data.map((task) => ({...task, show: true}))
+        setTasks(dataMapped)
     }
 
     function createTasks(task) {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Column(props) {
 
     const tasks = props.data.filter((task) => task.status == props.status)
-
+    
     // const filteredTasks = tasks.filter((task) => task.name == ABC)
 
     // function showFilteredTasks() {
@@ -25,7 +25,7 @@ export default function Column(props) {
             </div>
 
             <div className='task-group'>
-                {tasks.map((task) => <Task key={task.id} {...task} />)}
+                {tasks.map((task) => task.show && <Task key={task.id} {...task} />)}
             </div>
         </div>
     )

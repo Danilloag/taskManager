@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.form-background {
+    background-color: var(--card-color);
+    margin: 1rem 12rem;
+    border-radius: 0.5rem;
+}
+
+.butt-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+#dell-button {
+    background-color: var(--card-color);
+    color: var(--title-color);
+    border: solid 1px var(--title-color);
+}
+
+form {
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1.2rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+select,
+input {
+    width: 20rem;
+    height: 2rem;
+    outline-width: 0;
+    /* padding: 0.3rem; */
+}
+
+textarea {
+    width: 20rem;
+    outline-width: 0;
+    /* padding: 0.3rem; */
+    text-indent: 2rem;
+}
+
+.form-butt {
+    color: var(--card-color);
+    background-color: var(--title-color);
+}

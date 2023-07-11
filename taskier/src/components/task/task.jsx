@@ -1,7 +1,6 @@
 import Menu from '../menu/menu'
 import './task.css'
 import { useState } from 'react'
-import AppRoutes from '../routes/AppRoutes'
 
 export default function Task(props) {
 
@@ -28,7 +27,7 @@ export default function Task(props) {
                 </defs>
             </svg>
             <div className='description'>{props.description} </div>
-            {menu ? <Menu /> : ''}
+            {menu ? <Menu taskId={props.id} menuStatus={props.status}/> : ''}
         </div>
     )
 }

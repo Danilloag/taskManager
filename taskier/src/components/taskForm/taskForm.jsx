@@ -1,8 +1,11 @@
 import './taskForm.css'
 import { useContext, useState } from 'react'
 import tasksContext from '../../tasksContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function TaskForm() {
+
+    const navigate = useNavigate()
 
     const [newTask, setNewTask] = useState({
         name: '',
@@ -14,6 +17,7 @@ export default function TaskForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
         createTasks(newTask)
+        navigate('/')
     }
 
     return (

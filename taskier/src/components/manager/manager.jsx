@@ -6,20 +6,27 @@ import tasksContext from '../../tasksContext'
 
 export default function Manager() {
 
+
     const { tasks, setTasks, loadTasks } = useContext(tasksContext)
+
+    // const [ tasksMapped, setTasksMapped ] = useState(dataMapped)
 
     useEffect(() => {
         loadTasks()
+        // console.log(tasks, "tasks")
     }, [])
-
-
-    /////////////////////////////////
-    function filterTasks(e) {
-
-        const filteredTasks = tasks.filter(task => task.name.toLowerCase().startsWith(e.target.value.toLowerCase()))
-        e.target.value == "" ? loadTasks() : setTasks(filteredTasks)
+    
+    
+    async function filterTasks(e) {
+        if (e.target.value != '') {
+            const tasksToShow = tasks.map((task) => ({...task, show: task.name.toLowerCase().includes(e.target.value.toLowerCase())}))
+            // const filteredTasks = tasks.filter(task => task.name.toLowerCase().includes(e.target.value.toLowerCase()))
+            setTasks(tasksToShow)
+            // console.log(tasksToShow)
+            // console.log(tasksMapped)
+        }
     }
-    /////////////////////////////////
+
 
     return (
         <div className='master-div'>
