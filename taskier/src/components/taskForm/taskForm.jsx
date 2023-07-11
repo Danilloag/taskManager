@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 
 export default function TaskForm() {
 
+    const { tasks } = useContext(tasksContext)
+
     const navigate = useNavigate()
 
     const [newTask, setNewTask] = useState({
@@ -16,19 +18,23 @@ export default function TaskForm() {
     const { createTasks } = useContext(tasksContext)
     const handleSubmit = (e) => {
         e.preventDefault()
-        createTasks(newTask)
-        navigate('/')
+        if (tasks.find(task => task.name.toLowerCase() == newTask.name.toLowerCase())) {
+            alert('O nome da tarefa já existe. Por favor, cadastre a tarefa com outro nome')
+        } else {
+            createTasks(newTask)
+            navigate('/Manager')
+        }
     }
 
     return (
         <div className="form-background">
             <form action="post" onSubmit={handleSubmit}>
                 <label htmlFor="title">Title:<br />
-                    <input type="text" name="title" id="title" onChange={(e) => setNewTask({...newTask, name: e.target.value})}/>
+                    <input type="text" name="title" id="title" onChange={(e) => setNewTask({ ...newTask, name: e.target.value })} />
                 </label>
 
                 <label htmlFor="status">Status:<br />
-                    <select name="status" placeholder='Select a value...' value={newTask.status} id="state" onChange={(e) => setNewTask({...newTask, status: e.target.value})}>
+                    <select name="status" placeholder='Select a value...' value={newTask.status} id="state" onChange={(e) => setNewTask({ ...newTask, status: e.target.value })}>
                         <option disabled hidden></option>
                         <option value="LISTADA">Listed</option>
                         <option value="INICIADA">Started</option>
@@ -37,7 +43,7 @@ export default function TaskForm() {
                 </label>
 
                 <label htmlFor="description">Description:<br />
-                    <textarea name="description" id="description" rows="10" onChange={(e) => setNewTask({...newTask, description: e.target.value})}></textarea>
+                    <textarea name="description" id="description" rows="10" onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}></textarea>
                 </label>
 
                 <button className='form-butt' type='submit'>Submit</button>

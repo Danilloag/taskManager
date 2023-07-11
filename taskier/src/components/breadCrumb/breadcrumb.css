@@ -1,0 +1,10 @@
+.breadcrumbs {
+    color: var(--title-color);
+    /* font-weight: bold; */
+    padding-left: 8rem;
+    font-size: 0.8rem;
+}
+
+.bread-link {
+    color: inherit;
+}

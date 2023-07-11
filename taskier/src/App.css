@@ -50,11 +50,11 @@
   height: 4rem;
 }
 
-.breadcrumbs {
+/* .breadcrumbs {
   color: var(--title-color);
   font-weight: bold;
   padding-left: 8rem;
-}
+} */
 
 .master-div {
   height: 300px;

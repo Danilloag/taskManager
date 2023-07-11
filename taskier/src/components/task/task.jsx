@@ -27,7 +27,7 @@ export default function Task(props) {
                 </defs>
             </svg>
             <div className='description'>{props.description} </div>
-            {menu ? <Menu taskId={props.id} menuStatus={props.status}/> : ''}
+            {menu ? <Menu taskName={props.name.replace(' ','_')} taskStatus={props.status}/> : ''}
         </div>
     )
 }
