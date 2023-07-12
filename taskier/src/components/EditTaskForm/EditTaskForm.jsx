@@ -47,9 +47,8 @@ export default function EditTaskForm() {
       status: status,
     };
 
-    editTask(updatedTask);
-    console.log(taskId)
-    navigate('/manager');
+    editTask(updatedTask, updatedTask.status);
+    navigate('/Manager');
   }
 
   return (

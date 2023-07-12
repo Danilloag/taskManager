@@ -24,12 +24,12 @@ export function TasksProvider(props) {
         })
             .then((res) => res.json)
             .then((data) => {
-                console.log(`Task ${task} created successfully`)
+                console.log(`Task ${task.name} created successfully!`)
             })
             .catch((error) => { console.error() })
     }
 
-    function editTask(task) {
+    function editTask(task, taskStatus) {
         fetch(`http://localhost:3000/task/${task.id}`, {
             method: 'PUT',
             headers: {
@@ -37,7 +37,7 @@ export function TasksProvider(props) {
             },
             body: JSON.stringify({
                 name: task.name,
-                status: task.status,
+                status: task.status = taskStatus,
                 description: task.description,
                 created_at: task.created_at,
                 updated_at: task.updated_at 
@@ -46,7 +46,7 @@ export function TasksProvider(props) {
         )
             .then((response) => response.json())
             .then((data) => {
-                console.log('Tarefa atualizada com sucesso:', data);
+                console.log(`Task ${task.name}, id ${task.id} edited successfully!`, data);
             })
     }
 
