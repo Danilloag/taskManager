@@ -1,12 +1,11 @@
 import { useContext } from 'react'
 import tasksContext from '../../tasksContext'
 import './menu.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Menu(props) {
 
     const { tasks, editTask } = useContext(tasksContext)
-    const navigate = useNavigate()
 
     function turnStatus(status) {
         const taskToEditStatus = tasks.filter(task => task.id == props.taskId)[0]
