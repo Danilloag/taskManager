@@ -2,7 +2,7 @@ import './App.css'
 import './grid.css'
 import LogoMach1 from './assets/images/mach-1-logo.png'
 import { Link } from 'react-router-dom'
-import AppRoutes from './components/routes/AppRoutes'
+import AppRoutes from './AppRoutes'
 import Breadcrumb from './components/breadCrumb/breadcrumb'
 
 function App() {

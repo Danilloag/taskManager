@@ -35,17 +35,20 @@ export function TasksProvider(props) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(task),
+            body: JSON.stringify({
+                name: task.name,
+                status: task.status,
+                description: task.description,
+                created_at: task.created_at,
+                updated_at: task.updated_at 
+            }),
         }
         )
             .then((response) => response.json())
-            console.log(response.json(), "JSON")
             .then((data) => {
                 console.log('Tarefa atualizada com sucesso:', data);
             })
     }
-
-    ///////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks, editTask }}>

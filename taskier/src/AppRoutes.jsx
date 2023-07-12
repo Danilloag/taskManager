@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import Manager from '../manager/manager'
-import Task from '../task/task'
-import TaskForm from '../taskForm/taskForm'
-import EditTaskForm from '../EditTaskForm/EditTaskForm'
+import Manager from './components/manager/manager'
+import Task from './components/task/task'
+import TaskForm from './components/taskForm/taskForm'
+import EditTaskForm from './components/EditTaskForm/EditTaskForm'
 
 
 function AppRoutes() {
