@@ -10,12 +10,12 @@ export function TasksProvider(props) {
     async function loadTasks() {
         const res = await fetch('http://localhost:3000/task')
         const data = await res.json()
-        const dataMapped = data.map((task) => ({...task, show: true}))
+        const dataMapped = data.map((task) => ({ ...task, show: true }))
         setTasks(dataMapped)
     }
 
     function createTasks(task) {
-        fetch ('http://localhost:3000/task', {
+        fetch('http://localhost:3000/task', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -26,53 +26,29 @@ export function TasksProvider(props) {
             .then((data) => {
                 console.log(`Task ${task} created successfully`)
             })
-            .catch((error) => {console.error()})
+            .catch((error) => { console.error() })
     }
 
-    function TaskEditor(task) {
-        const [name, setName] = useState(task.name);
-        const [description, setDescription] = useState(task.description);
-        const [status, setStatus] = useState(task.status);
-
-        const handleNameChange = (e) => {
-            setName(e.target.value);
-        };
-
-        const handleDescriptionChange = (e) => {
-            setDescription(e.target.value);
-        };
-
-        const handleStatusChange = (e) => {
-            setStatus(e.target.value);
-        };
-
-        const handleSave = () => {
-            const updatedTask = {
-                ...task,
-                name: name,
-                description: description,
-                status: status,
-            };
-
-            fetch(`http://localhost:3000/task/${task.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedTask),
-            }
-            )
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log('Tarefa atualizada com sucesso:', data);
-                })
-        };
+    function editTask(task) {
+        fetch(`http://localhost:3000/task/${task.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(task),
+        }
+        )
+            .then((response) => response.json())
+            console.log(response.json(), "JSON")
+            .then((data) => {
+                console.log('Tarefa atualizada com sucesso:', data);
+            })
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
 
     return (
-        <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks }}>
+        <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks, editTask }}>
             {props.children}
         </tasksContext.Provider>
     )

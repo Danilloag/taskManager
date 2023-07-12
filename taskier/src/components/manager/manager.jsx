@@ -3,7 +3,6 @@ import Column from '../column/column'
 import { useState, useContext, useEffect } from 'react'
 import tasksContext from '../../tasksContext'
 
-
 export default function Manager() {
 
 

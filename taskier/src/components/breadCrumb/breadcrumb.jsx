@@ -14,7 +14,8 @@ export default function Breadcrumb() {
     return (
         <>
             <p className='breadcrumbs'>
-                <Link className='bread-link' to='/'>{crumb[1]}</Link> >> <Link className='bread-link' to='/'>{crumb[2]}</Link>
+
+                <Link className='bread-link' to={`/${crumb[1]}`}>{crumb[1]}</Link> {crumb[2] ? `${'>>'}` : ''} <Link className='bread-link' to={`/${crumb[2]}`}>{crumb[2]}</Link>
             </p>
         </>
     )

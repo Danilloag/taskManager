@@ -5,6 +5,6 @@
     font-size: 0.8rem;
 }
 
-.bread-link {
-    color: inherit;
+.bread-link, bread-link:visited {
+    color: var(--title-color);
 }

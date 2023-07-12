@@ -11,7 +11,7 @@ function AppRoutes() {
             <Route path='Manager' element={<Manager />} />
             <Route path='/Tasks' element={<Task/>} />
             <Route path='/New_Task_Form' element={<TaskForm/>} />
-            <Route path='/Edit_Task_Form/:taskName' element={<EditTaskForm/>} />
+            <Route path='/Edit_Task_Form/:taskId' element={<EditTaskForm/>} />
         </Routes>
     )
 }

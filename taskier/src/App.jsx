@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className='background'>
-      <Link to="/Manager">
+      <Link to="Manager">
         <div className='logo-div col-12'>
           <img className='logo-mach' src={LogoMach1} alt="LogoMach1" />
         </div>

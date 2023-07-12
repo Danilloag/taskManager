@@ -9,7 +9,7 @@
     border-radius: 0.5rem;
 }
 
-.butt-group {
+.buttons-group {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -49,7 +49,7 @@ textarea {
     text-indent: 2rem;
 }
 
-.form-butt {
+.form-button {
     color: var(--card-color);
     background-color: var(--title-color);
 }
