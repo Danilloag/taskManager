@@ -5,13 +5,6 @@ import { Link } from 'react-router-dom'
 export default function Column(props) {
 
     const tasks = props.data.filter((task) => task.status == props.status)
-    
-    // const filteredTasks = tasks.filter((task) => task.name == ABC)
-
-    // function showFilteredTasks() {
-    //     console.log(tasks)
-    //     return tasks.filter((task) => task.name == ABC)
-    // }
 
     return (
         <div className="tasks-container">
