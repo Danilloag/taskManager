@@ -52,15 +52,10 @@ export function TasksProvider(props) {
     function deleteTask(task) {
         fetch(`http://localhost:3000/task/${task.id}`, {
             method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(task),
         })
             .then(response => response.json())
-            .then(data => {
-                console.log(`Task ${task.name} deletion successfully!`, data);
-            })
+            .then(data => { console.log(`Task ${task.name} deletion successfully!`, data); })
+            .catch(error => { console.log(error) })
     }
 
     return (

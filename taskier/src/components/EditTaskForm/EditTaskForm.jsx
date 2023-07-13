@@ -51,10 +51,11 @@ export default function EditTaskForm() {
     navigate('/Manager');
   }
   
-  function taskToDelete() {
+  function taskToDelete(e) {
+    e.preventDefault();
     const task = tasks.find((task) => task.id === taskId);
     console.log("deletar", task)
-    // deleteTask(task)
+    deleteTask(task)
     navigate('/Manager');
   }
 
