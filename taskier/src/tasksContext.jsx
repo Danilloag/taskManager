@@ -24,9 +24,9 @@ export function TasksProvider(props) {
         })
             .then((res) => res.json)
             .then((data) => {
-                console.log(`Task ${task.name} created successfully!`)
+                console.log(`Task ${task.name} creation successfully!`)
             })
-            .catch((error) => { console.error() })
+            .catch((err) => { console.log(err) })
     }
 
     function editTask(task, taskStatus) {
@@ -40,18 +40,31 @@ export function TasksProvider(props) {
                 status: task.status = taskStatus,
                 description: task.description,
                 created_at: task.created_at,
-                updated_at: task.updated_at 
+                updated_at: task.updated_at
             }),
-        }
-        )
+        })
             .then((response) => response.json())
             .then((data) => {
-                console.log(`Task ${task.name}, id ${task.id} edited successfully!`, data);
+                console.log(`Task ${task.name}, id ${task.id} edition successfully!`, data);
+            })
+    }
+
+    function deleteTask(task) {
+        fetch(`http://localhost:3000/task/${task.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(task),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(`Task ${task.name} deletion successfully!`, data);
             })
     }
 
     return (
-        <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks, editTask }}>
+        <tasksContext.Provider value={{ tasks, setTasks, loadTasks, createTasks, editTask, deleteTask }}>
             {props.children}
         </tasksContext.Provider>
     )

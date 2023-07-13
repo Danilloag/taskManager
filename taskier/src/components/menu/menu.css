@@ -24,9 +24,3 @@
     background-color: var(--title-color);
     border: none;
 }
-
-.new-edit-icon {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import tasksContext from '../../tasksContext';
 
 export default function EditTaskForm() {
-  const { tasks, editTask } = useContext(tasksContext);
+  const { tasks, editTask, deleteTask } = useContext(tasksContext);
   const navigate = useNavigate();
   const { taskId } = useParams();
 
@@ -13,7 +13,7 @@ export default function EditTaskForm() {
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    taskToEdit();
+    taskToEdit()
   }, []);
 
   function taskToEdit() {
@@ -50,6 +50,13 @@ export default function EditTaskForm() {
     editTask(updatedTask, updatedTask.status);
     navigate('/Manager');
   }
+  
+  function taskToDelete() {
+    const task = tasks.find((task) => task.id === taskId);
+    console.log("deletar", task)
+    // deleteTask(task)
+    navigate('/Manager');
+  }
 
   return (
     <div className="form-background">
@@ -57,25 +64,13 @@ export default function EditTaskForm() {
         <label htmlFor="title">
           Title:
           <br />
-          <input
-            type="text"
-            name="title"
-            id="title"
-            value={name}
-            onChange={handleNameChange}
-          />
+          <input type="text" name="title" id="title" value={name} onChange={handleNameChange} />
         </label>
 
         <label htmlFor="status">
           Status:
           <br />
-          <select
-            name="status"
-            placeholder="Select a value..."
-            id="state"
-            value={status}
-            onChange={handleStatusChange}
-          >
+          <select name="status" placeholder="Select a value..." id="state" value={status} onChange={handleStatusChange}>
             <option disabled hidden></option>
             <option value="LISTADA">Listed</option>
             <option value="INICIADA">Started</option>
@@ -86,21 +81,11 @@ export default function EditTaskForm() {
         <label htmlFor="description">
           Description:
           <br />
-          <textarea
-            name="description"
-            id="description"
-            rows="10"
-            value={description}
-            onChange={handleDescriptionChange}
-          ></textarea>
+          <textarea name="description" id="description" rows="10" value={description} onChange={handleDescriptionChange}></textarea>
         </label>
         <div className="buttons-group">
-          <button id="dell-button" className="form-button" type="submit">
-            Delete
-          </button>
-          <button className="form-button" type="submit">
-            Edit
-          </button>
+          <button id="dell-button" onClick={taskToDelete} className="form-button">Delete</button>
+          <button className="form-button" type="submit">Edit</button>
         </div>
       </form>
     </div>

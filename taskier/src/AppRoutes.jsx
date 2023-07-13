@@ -8,10 +8,11 @@ import EditTaskForm from './components/EditTaskForm/EditTaskForm'
 function AppRoutes() {
     return (
         <Routes>
+            <Route path='/' element={<Manager />} />
             <Route path='Manager' element={<Manager />} />
-            <Route path='/Tasks' element={<Task/>} />
-            <Route path='/New_Task_Form' element={<TaskForm/>} />
-            <Route path='/Edit_Task_Form/:taskId' element={<EditTaskForm/>} />
+            <Route path='/Tasks' element={<Task />} />
+            <Route path='/New_Task_Form' element={<TaskForm />} />
+            <Route path='/Edit_Task_Form/:taskId' element={<EditTaskForm />} />
         </Routes>
     )
 }
